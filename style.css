@@ -1,4 +1,6 @@
-/* --- CƠ BẢN --- */
+/* ==========================================================================
+   1. CƠ BẢN & ĐỊNH DẠNG CHUNG (BASE STYLES)
+   ========================================================================== */
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -8,7 +10,7 @@ body {
     color: #1a202c;
 }
 
-/* Ẩn cái link Skip Content đi, khi nào nhấn Tab nó mới hiện ra (Đạt chuẩn WAVE) */
+/* Ẩn cái link Skip Content đi, khi nào nhấn Tab mới hiện ra (Đạt chuẩn WAVE) */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -18,7 +20,9 @@ body {
     padding: 8px;
     z-index: 100;
     text-decoration: none;
+    transition: top 0.2s;
 }
+
 .skip-link:focus {
     top: 0;
 }
@@ -33,11 +37,19 @@ h1 {
     text-align: center;
     font-family: 'Trebuchet MS', sans-serif;
     color: #ffffff;
+    margin: 0;
 }
 
 p {
     line-height: 1.6;
     color: #2d3748;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 400px;
 }
 
 footer {
@@ -46,10 +58,13 @@ footer {
     padding: 15px;
     text-align: center;
     margin-top: 20px;
+    clear: both;
 }
 
-/* --- YÊU CẦU 1: Comment out existing styling for li --- */
-/*
+/* ==========================================================================
+   2. YÊU CẦU 1: COMMENT OUT EXISTING STYLING FOR LI
+   ========================================================================== */
+/* Bùa phong ấn li cũ đã được tắt theo đúng yêu cầu của đề bài bài 2
 li {
     display: inline-block;
     width: 150px;
@@ -57,77 +72,100 @@ li {
 }
 */
 
-/* --- YÊU CẦU 2 & 3: Style nav element and its image --- */
+/* ==========================================================================
+   3. YÊU CẦU 2 & 3: STYLE NAVIGATION & IMAGE IN NAV (INLINE-BLOCK & 80%)
+   ========================================================================== */
 nav {
     background-color: #2b6cb0;
-    padding: 10px;
+    padding: 15px 20px;
     display: inline-block; /* Biến nav thành inline-block */
-    width: 80px;          /* Đặt width khoảng 80% */
+    width: 80%;           /* Đạt chuẩn rộng 80% của đề bài */
+    box-sizing: border-box;
+    vertical-align: middle;
 }
 
 nav ul {
     display: inline-block;
+    width: 85%;
     margin: 0;
     padding: 0;
+    list-style-type: none;
+    vertical-align: middle;
 }
 
 nav li {
     display: inline;
-    margin-right: 15px;
+    margin-left: 20px;
 }
 
 nav a {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-/* Thuộc tính descendant selector cho ảnh trong nav rộng 10% */
+/* Thuộc tính descendant selector: Chỉ style ảnh TRONG nav rộng khoảng 10% */
 nav img {
-    width: 10px;
+    width: 10%;
+    max-width: 80px;
     vertical-align: middle;
-    margin-right: 10px;
+    height: auto;
 }
 
-/* --- YÊU CẦU 4 & 6: Grid Class Layout (2 cột 40%) --- */
+/* ==========================================================================
+   4. YÊU CẦU 4, 5 & 6: GRID CLASS LAYOUT (2 CỘT 40% & ẢNH 100%)
+   ========================================================================== */
 .grid {
     display: grid;
-    grid-template-columns: 40% 40%; /* 2 cột, mỗi cột khoảng 40% */
+    grid-template-columns: 40% 40%; /* 2 cột, mỗi cột rộng khoảng 40% */
     justify-content: space-around;   /* Căn đều khoảng cách giữa các cột */
     align-items: center;            /* Căn giữa các phần tử theo chiều dọc */
-    row-gap: 20px;                  /* Khoảng cách giữa các hàng */
-    margin: 20px 0;
+    row-gap: 30px;                  /* Khoảng cách giữa các hàng */
+    margin: 40px 0;
 }
 
-/* --- YÊU CẦU 5: Chỉ style ảnh trong class grid rộng 100% --- */
+/* Thuộc tính descendant selector: Chỉ style ảnh TRONG class grid rộng 100% */
 .grid img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- YÊU CẦU 7: Flex Class Layout --- */
+.grid-item {
+    text-align: center;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   5. YÊU CẦU 7: FLEX CLASS LAYOUT (DISPLAY FLEX & FLEX-WRAP)
+   ========================================================================== */
 .flex {
     display: flex;                  /* Kích hoạt Flexbox */
-    flex-wrap: wrap;                /* Cho phép tự động xuống hàng */
-    justify-content: space-between; /* Căn đều các phần tử flex */
-    margin: 20px 0;
+    flex-wrap: wrap;                /* Cho phép các phần tử tự động xuống hàng */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử flex */
+    margin: 40px 0;
 }
 
 .flex-item {
     background-color: #edf2f7;
-    padding: 15px;
+    padding: 20px;
     margin: 10px;
     border-radius: 8px;
     text-align: center;
-    flex: 1 1 25%; /* Co giãn linh hoạt khoảng 25% màn hình */
+    flex: 1 1 25%;                 /* Co giãn linh hoạt khoảng 25% màn hình */
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* Ảnh trong flex giữ nguyên kích thước gốc, KHÔNG bị dính 100% như bên grid */
 .flex-item img {
-    width: 150px; /* Ảnh trong flex giữ nguyên kích thước, khum bị hít 100% như bên grid */
+    width: 150px; 
     height: auto;
+    border-radius: 4px;
 }
