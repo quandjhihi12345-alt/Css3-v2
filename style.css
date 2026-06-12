@@ -1,0 +1,133 @@
+/* --- CƠ BẢN --- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #f7fafc;
+    color: #1a202c;
+}
+
+/* Ẩn cái link Skip Content đi, khi nào nhấn Tab nó mới hiện ra (Đạt chuẩn WAVE) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #e53e3e;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+header {
+    background-color: #1a365d;
+    color: #ffffff;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+}
+
+p {
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+footer {
+    background-color: #2d3748;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- YÊU CẦU 1: Comment out existing styling for li --- */
+/*
+li {
+    display: inline-block;
+    width: 150px;
+    list-style-type: none;
+}
+*/
+
+/* --- YÊU CẦU 2 & 3: Style nav element and its image --- */
+nav {
+    background-color: #2b6cb0;
+    padding: 10px;
+    display: inline-block; /* Biến nav thành inline-block */
+    width: 80px;          /* Đặt width khoảng 80% */
+}
+
+nav ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Thuộc tính descendant selector cho ảnh trong nav rộng 10% */
+nav img {
+    width: 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* --- YÊU CẦU 4 & 6: Grid Class Layout (2 cột 40%) --- */
+.grid {
+    display: grid;
+    grid-template-columns: 40% 40%; /* 2 cột, mỗi cột khoảng 40% */
+    justify-content: space-around;   /* Căn đều khoảng cách giữa các cột */
+    align-items: center;            /* Căn giữa các phần tử theo chiều dọc */
+    row-gap: 20px;                  /* Khoảng cách giữa các hàng */
+    margin: 20px 0;
+}
+
+/* --- YÊU CẦU 5: Chỉ style ảnh trong class grid rộng 100% --- */
+.grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- YÊU CẦU 7: Flex Class Layout --- */
+.flex {
+    display: flex;                  /* Kích hoạt Flexbox */
+    flex-wrap: wrap;                /* Cho phép tự động xuống hàng */
+    justify-content: space-between; /* Căn đều các phần tử flex */
+    margin: 20px 0;
+}
+
+.flex-item {
+    background-color: #edf2f7;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 25%; /* Co giãn linh hoạt khoảng 25% màn hình */
+}
+
+.flex-item img {
+    width: 150px; /* Ảnh trong flex giữ nguyên kích thước, khum bị hít 100% như bên grid */
+    height: auto;
+}
